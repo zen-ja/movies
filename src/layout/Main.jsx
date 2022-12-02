@@ -5,15 +5,18 @@ import { Search } from '../components/Search';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+
 export class Main extends React.Component {
   state = {
     movies: [],
     loading: true,
   };
 
+  getUrl = (str, type) => `https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type === 'all' ? '' : `&type=${type}`}`;
+
   searchMovies = (str, type = "all") => {
     this.setState({ loading: true });
-    fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+    fetch(this.getUrl(str, type))
       .then(response => response.json())
       .then(data => this.setState({ movies: data.Search, loading: false }))
       .catch((err) => {
@@ -23,7 +26,7 @@ export class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://www.omdbapi.com/?apikey=ce38fcfc&s=hello')
+    fetch(this.getUrl('Hello', 'all'))
       .then(response => response.json())
       .then(data => this.setState({ movies: data.Search, loading: false }))
       .catch((err) => {
