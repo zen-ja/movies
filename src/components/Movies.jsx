@@ -2,9 +2,14 @@ import React from 'react';
 import { Movie } from './Movie';
 
 export function Movies(props) {
+  const { movies = [] } = props;
   return (
     <div className="movies">
-      {props.movies.map((movie) => { return <Movie key={movie.imdbID} {...movie} /> })}
+      {
+        movies.length
+          ? movies.map((movie) => { return <Movie key={movie.imdbID} {...movie} /> })
+          : <h4>empty reault</h4>
+      }
     </div>
   );
 }

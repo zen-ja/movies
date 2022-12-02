@@ -20,7 +20,7 @@ export class Search extends Component {
 
   selectTypeChange = (event) => {
     this.setState(
-      () => ({ type: event.target.value }),
+      () => ({ type: event.target.dataset.type }),
       () => { this.props.searchMovies(this.state.search, this.state.type); });
   }
 
@@ -42,15 +42,30 @@ export class Search extends Component {
         </div>
         <div>
           <label className="col s4">
-            <input name="group1" type="radio" value="all" onChange={this.selectTypeChange} />
+            <input
+              name="group1"
+              type="radio"
+              data-type="all"
+              onChange={this.selectTypeChange}
+              checked={this.state.type === "all"} />
             <span>All</span>
           </label>
           <label className="col s4">
-            <input name="group1" type="radio" value="movie" onChange={this.selectTypeChange} />
+            <input
+              name="group1"
+              type="radio"
+              data-type="movie"
+              onChange={this.selectTypeChange}
+              checked={this.state.type === "movie"} />
             <span>Movies</span>
           </label>
           <label className="col s4">
-            <input name="group1" type="radio" value="series" onChange={this.selectTypeChange} />
+            <input
+              name="group1"
+              type="radio"
+              data-type="series"
+              onChange={this.selectTypeChange}
+              checked={this.state.type === "series"} />
             <span>Series</span>
           </label>
         </div>
