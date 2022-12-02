@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/zen-ja/movies.github.io/static/css/main.835fe359.css",
+    "main.js": "/zen-ja/movies.github.io/static/js/main.2f042c37.js",
+    "index.html": "/zen-ja/movies.github.io/index.html",
+    "main.835fe359.css.map": "/zen-ja/movies.github.io/static/css/main.835fe359.css.map",
+    "main.2f042c37.js.map": "/zen-ja/movies.github.io/static/js/main.2f042c37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.835fe359.css",
+    "static/js/main.2f042c37.js"
+  ]
+}
